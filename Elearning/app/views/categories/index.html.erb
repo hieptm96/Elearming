@@ -1,0 +1,16 @@
+<% provide(:title, 'All categories') %>
+<h1>All categories</h1>
+
+<ul class="categories">
+  <% @categories.each do |category| %>
+    <li>
+      <div>
+      	<%#= gravatar_for category, size: 50 %>
+	      <%#= link_to category.name, category %>
+	      <h2><%= category.title %></h2>
+	      <p><%= category.description %></p>
+	      <button type="button" class="btn btn-success btn-lg">Start</button>
+      </div>
+    </li>
+  <% end %>
+</ul>
