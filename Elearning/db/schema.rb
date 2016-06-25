@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625080342) do
+ActiveRecord::Schema.define(version: 20160625081949) do
 
   create_table "activities", force: :cascade do |t|
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "category_id", limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "category_id",           limit: 4
+    t.integer  "word_learned_quantity", limit: 4
+    t.integer  "user_id",               limit: 4
   end
 
   add_index "activities", ["created_at"], name: "index_activities_on_created_at", using: :btree
