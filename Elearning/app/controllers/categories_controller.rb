@@ -12,5 +12,11 @@ class CategoriesController < ApplicationController
     @words.each do |word|
   		Result.create(:user_id => session[:user_id], :word_id => word.id, :category_id => params[:id])
   	end
+  	
+  	#if there are words to learn in category, update activities table
+  	#else don't update
+  	if @words.count > 0
+  		Activity.create(:category_id => params[:id])
+  	end
   end
 end
