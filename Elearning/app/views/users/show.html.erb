@@ -18,9 +18,10 @@
       <% @activities.each do |activity| %>
         <li>
           <div>
-            <%#= gravatar_for activity, size: 50 %>
+            <% a = Category.find_by_sql ["select * from categories where id = ?",activity.category_id] %>
+            <%#= gravatar_for activity.id, size: 50 %>
             <%#= link_to activity.name, activity %>           
-            <p><%= activity.category_id %></p>
+            <p>Learned <%= activity.word_learned_quantity %> words in Lesson "<%=  %>".( <%= activity.created_at %> )</p>
           </div>
         </li>
       <% end %>

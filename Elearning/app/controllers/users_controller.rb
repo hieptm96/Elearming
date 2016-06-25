@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @activities = Activity.all
+    @activities = Activity.find_by_sql ["select * from activities where user_id = ?",session[:user_id]]
   end
 
   def create
