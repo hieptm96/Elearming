@@ -19,4 +19,22 @@ class CategoriesController < ApplicationController
   		Activity.create(:category_id => params[:id], :word_learned_quantity => @words.count, :user_id => session[:user_id])
   	end
   end
+
+  def check
+  	show
+  	@count = 0;
+  	#@posts = []
+  	pos = 1
+  	@words.each do |word|
+  		id = pos.to_s
+  		if word.vi == params[id]
+  			@count = @count + 1
+  		else
+  			params[id] = -1
+  		end
+  		# id = pos.to_s
+  		# @posts.push(params[id])
+  		pos = pos + 1
+  	end
+  end
 end

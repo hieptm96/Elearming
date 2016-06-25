@@ -1,0 +1,19 @@
+<h1>Result : <%= @count %>/20</h1>
+<% temp = 1 %>
+<% @words.each do |word| %>
+  <li>
+    <div>
+      <%#= gravatar_for category, size: 50 %>
+      <%#= link_to category.name, category %>        
+      <p> 
+      	<% if params[temp.to_s] == -1 %>
+      		<span style="color: red; margin-right: 20px">X</span> 
+      	<% else %>
+      		<span style="color: red; margin-right: 20px">O</span> 
+      	<% end %>
+      	<span style="margin-right: 20px"><%= word.en %></span> : <span style="margin-left: 20px"><%= word.vi %></span>
+      </p>
+    </div>
+  </li>
+  <% temp = temp + 1 %>
+<% end %>
