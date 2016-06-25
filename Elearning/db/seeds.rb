@@ -16,12 +16,20 @@ end
 	en = "love"
 	vi = "tinh yeu"
 	category_id = "1"
-	Word.create!(en: en, vi: vi, category_id: category_id)
+	ans_a = "sai_1"
+	ans_b = "sai_2"
+	ans_c = "sai_3"
+	ans_d = "tinh yeu"
+	Word.create!(en: en, vi: vi, category_id: category_id, ans_a: ans_a, ans_b: ans_b, ans_c: ans_c, ans_d: ans_d)
 end
 
 30.times do |n|
 	en = "dad"
 	vi = "cha"
 	category_id = "2"
-	Word.create!(en: en, vi: vi, category_id: category_id)
+	ans_a = "sai_1"
+	ans_b = "sai_2"
+	ans_c = "sai_3"
+	ans_d = "cha"
+	Word.create!(en: en, vi: vi, category_id: category_id, ans_a: ans_a, ans_b: ans_b, ans_c: ans_c, ans_d: ans_d)
 end

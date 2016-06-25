@@ -1,13 +1,27 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".ans").click(function(){
+      //Them :checked de khi chon bat ki mot dap an trong mot cau chi tinh la 1 lan click => tien trinh lesson
+      var a = $(".ans:checked").length;
+      $("#process").text(a);
+    });
+  });
+</script>
+
 <ul class="categories" style="list-style-type: none">
   <% temp = 0 %>
-  <h2><%= Category.find(params[:id]).title %> </h2>
+  <h2><%= Category.find(params[:id]).title %> <span style="color: green"><span id="process">0</span>/20</span></h2>
   <% @words.each do |word| %>
     <li>
       <div>
       	<%#= gravatar_for category, size: 50 %>
 	      <%#= link_to category.name, category %>        
-	      <p><%= temp %>. <%= word.en %> : <%= word.vi %> : <%= word.category_id %></p>
+	      <p><%= temp %>. <%= word.en %> ?</p>
         <% temp = temp + 1 %>
+        <input type="radio" name="<%= word.id %>" value="<%= word.ans_a %>" class="ans"> <%= word.ans_a %><br>
+        <input type="radio" name="<%= word.id %>" value="<%= word.ans_b %>" class="ans"> <%= word.ans_b %><br>
+        <input type="radio" name="<%= word.id %>" value="<%= word.ans_c %>" class="ans"> <%= word.ans_c %><br>
+        <input type="radio" name="<%= word.id %>" value="<%= word.ans_d %>" class="ans"> <%= word.ans_d %><br>
       </div>
     </li>
   <% end %>
