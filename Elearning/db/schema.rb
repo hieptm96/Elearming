@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625081949) do
+ActiveRecord::Schema.define(version: 20160625095617) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "created_at",                      null: false
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20160625081949) do
     t.integer  "category_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "ans_a",       limit: 255
+    t.string   "ans_b",       limit: 255
+    t.string   "ans_c",       limit: 255
+    t.string   "ans_d",       limit: 255
   end
 
   add_index "words", ["category_id", "created_at"], name: "index_words_on_category_id_and_created_at", using: :btree
