@@ -9,7 +9,7 @@
 	      <%#= link_to category.name, category %>
 	      <h2><%= category.title %></h2>
 	      <p><%= category.description %></p>
-	      <button type="button" class="btn btn-success btn-lg">Start</button>
+	      <button type="button" class="btn btn-success btn-lg"><%= link_to "Start", category %></button>
       </div>
     </li>
   <% end %>

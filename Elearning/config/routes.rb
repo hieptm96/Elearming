@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'words/index'
+
   get 'sessions/new'
 
   root             'static_pages#home'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :categories
+  resources :words
 
 
   # The priority is based upon order of creation: first created -> highest priority.
