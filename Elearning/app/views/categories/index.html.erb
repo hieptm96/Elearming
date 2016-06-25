@@ -7,7 +7,7 @@
       <div>
       	<%#= gravatar_for category, size: 50 %>
 	      <%#= link_to category.name, category %>
-	      <h2><%= category.title %></h2>
+	      <h2><%= category.title %>  <span style="color: red">You've learned <%= Result.where("category_id = ? and user_id = ?",category.id,session[:user_id]).count %>/<%= Word.where("category_id = ?",category.id).count %></span></h2>
 	      <p><%= category.description %></p>
 	      <button type="button" class="btn btn-success btn-lg"><%= link_to "Start", category %></button>
       </div>

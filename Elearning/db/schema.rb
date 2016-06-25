@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624161222) do
+ActiveRecord::Schema.define(version: 20160625041243) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20160624161222) do
     t.datetime "updated_at",                null: false
     t.text     "description", limit: 65535
   end
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "word_id",     limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "results", ["user_id", "word_id", "category_id"], name: "index_results_on_user_id_and_word_id_and_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",         limit: 255

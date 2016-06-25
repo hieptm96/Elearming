@@ -4,7 +4,13 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-    @category = Category.find(params[:id])
-    @words = @category.words.order("RAND() LIMIT 20")
+    @category = Category.find_by(params[:id])
+    id = params[:id]
+    #@words = @category.words.find_by_sql "select * from words where (words.id not in (select distinct word_id from results)) and (category_id = id) order by rand() limit 20"
+    @words = Word.find_by_sql ["select * from words where (words.id not in (select word_id from results where user_id = ?)) and (category_id = ?) order by rand() limit 20",session[:user_id],id]
+    #@words = Word.find_by_sql ["select * from words where (words.id not in (select distinct word_id from results where word_id in (select word_id from results where user_id = ?))) and (category_id = ?) order by rand() limit 20",session[:id],id]
+    @words.each do |word|
+  		Result.create(:user_id => session[:user_id], :word_id => word.id, :category_id => params[:id])
+  	end
   end
 end

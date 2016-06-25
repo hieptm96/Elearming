@@ -12,9 +12,16 @@
 	Category.create!(title: title, description: description)
 end
 
-50.times do |n|
+30.times do |n|
 	en = "love"
 	vi = "tinh yeu"
 	category_id = "1"
+	Word.create!(en: en, vi: vi, category_id: category_id)
+end
+
+30.times do |n|
+	en = "dad"
+	vi = "cha"
+	category_id = "2"
 	Word.create!(en: en, vi: vi, category_id: category_id)
 end

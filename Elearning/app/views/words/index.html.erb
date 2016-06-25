@@ -1,14 +1,16 @@
 <% provide(:title, 'All words') %>
 <h1>All words</h1>
 
+<% temp = 0 %>
 <ul class="categories" style="list-style-type: none">
   <% @words.each do |word| %>
     <li>
       <div>
       	<%#= gravatar_for category, size: 50 %>
 	      <%#= link_to category.name, category %>
-	      <p><%= word.en %> : <%= word.vi %></p>
+	      <p><%= temp %>. <%= word.en %> : <%= word.vi %></p>
       </div>
     </li>
+    <% temp = temp + 1 %>
   <% end %>
 </ul>
